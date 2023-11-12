@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CompanyListView from "./components/CompanyListView";
+import CompanyListDelete from "./components/CompanyListDelete";
+import CompanyListSeacrh from "./components/CompanyListSearch";
+import CompanyListAdd from "./components/CompanyListAdd";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<CompanyListAdd />} />
+          <Route path="search" element={<CompanyListSeacrh />} />
+          <Route path="delete" element={<CompanyListDelete />} />
+          <Route path="view" element={<CompanyListView />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
